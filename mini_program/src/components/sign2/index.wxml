@@ -1,0 +1,28 @@
+<view class="comp myclass">
+  <view class="header">
+    <image class="header__img" src="../../imgs/title.png" mode="widthFix" />
+    <view class="header__text">每日登入奖励</view>
+  </view>
+
+  <view class="main">
+    <view class="main__header">
+      <image class="main__header_icon" src="../../imgs/guanbi.png" data-trigger="close" data-bubbles bindtap="trigger" />
+    </view>
+
+    <block wx:for="{{signList}}" wx:key="score">
+      <view class="day {{item.active&&'day--active'}} {{item.anime&&'day--anime'}}">
+        <view class="day__header">第{{index+1}}天</view>
+        <view class="day__body">
+          <image class="day__bg" src="./guangmang.png" mode="widthFix" />
+          <image class="day__icon" src="../../imgs/icon_Gold_big@2x.png" mode="widthFix" />
+          <view class="day__gold">{{item.score}}</view>
+        </view>
+        <view class="day__mask" wx:if="{{item.hasSign}}">
+          <text class="day__text">已领取</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <button class="btn" bindtap="putSign">领取奖励</button>
+</view>

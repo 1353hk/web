@@ -1,0 +1,18 @@
+<view class="comp myclass {{isOpen && 'comp--open'}}">
+  <view class="mask" bindtap="switch" />
+
+  <view class="main">
+    <view class="switch" bindtap="switch">
+      <image class="switch__img" src="../../imgs/arrow-r.png" mode="widthFix"></image>
+    </view>
+
+    <view class="btns {{list.length>5 ? 'btns--row' : 'btns--col'}}">
+      <block wx:for="{{list}}">
+        <my-mp class="btn" appid="{{item.adWxAppId}}" path="{{item.path}}" data-msg="{{item}}" bindtap="trigger">
+          <image class="btn__img" src="{{item.image}}" mode="widthFix"></image>
+          <view class="btn__text">{{item.title}}</view>
+        </my-mp>
+      </block>
+    </view>
+  </view>
+</view>

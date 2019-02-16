@@ -1,0 +1,92 @@
+:host {
+}
+
+.comp {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main__img {
+  width: 100%;
+  height: 100%;
+}
+
+.msg {
+  margin-left: 20rpx;
+  padding: 10rpx 0 30rpx;
+  text-align: left;
+}
+
+.normal {
+  display: flex;
+  align-items: center;
+}
+.normal__name {
+  line-height: 1.6;
+  font-size: 34rpx;
+}
+.normal__icon {
+  margin-left: 10rpx;
+}
+.normal__icon.fa-mars {
+  color: #6ccbff;
+}
+.normal__icon.fa-venus {
+  color: #eec0d2;
+}
+
+.highlight {
+}
+.highlight__name {
+  line-height: 1.6;
+  font-size: 34rpx;
+  color: #da5c48;
+}
+.highlight__tags {
+  display: flex;
+  align-items: center;
+}
+.highlight__tag {
+  margin-right: 10rpx;
+  padding: 0 10rpx;
+  line-height: 30rpx;
+  border-radius: 6rpx;
+  font-size: 10px;
+  color: #ffffff;
+}
+.highlight__sex {
+  background: #a4c735;
+}
+.highlight__sex--1 {
+  background: #6ccbff;
+}
+.highlight__sex--2 {
+  background: #eec0d2;
+}
+.highlight__sex_text {
+  margin-left: 8rpx;
+}
+.highlight__constellation {
+}
+.highlight__hobby {
+}
+.highlight__hobby_icon {
+}
+.highlight__hobby_text {
+}
+
+.other {
+  margin-top: 10rpx;
+  font-size: 12px;
+  color: #a6a6a6;
+}
+
+@import '../../static/font-awesome.min.wxss';

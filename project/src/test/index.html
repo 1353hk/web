@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="author" content="KAZUKI" />
+  <meta name="description" content="" />
+  <title></title>
+  <link rel="icon" href="" />
+  <link rel="stylesheet" href="../../dist/common.css" />
+</head>
+
+<body class="loading">
+  <div class="page" id="app" v-cloak>
+    <div class="wrap">
+
+
+      <my-tag>
+        <p slot-scope="{text}">{{text}}</p>
+      </my-tag>
+      <!-- <my-tag :arr="ARR">
+    <li slot-scope="{text}">{{ text }}</li>
+</my-tag> -->
+      <!-- <my-tag :arr="ARR">
+    <li slot-scope="props">{{ props.text }}</li>
+</my-tag> -->
+      <!-- <my-tag>
+    <span slot-scope="{ text }">{{ text }}</span>
+</my-tag> -->
+
+
+
+    </div>
+  </div>
+</body>
+
+<script src="../../dist/common.js"></script>
+<script src="./bundle.js"></script>
+
+</html>

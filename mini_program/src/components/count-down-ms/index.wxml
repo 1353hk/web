@@ -1,0 +1,4 @@
+<view class="comp myclass">
+  <progress class="pct" percent="{{pct}}" stroke-width="14" activeColor="#FFE615" backgroundColor="#FFFFFF" />
+  <text class="time">{{ms}}</text>
+</view>

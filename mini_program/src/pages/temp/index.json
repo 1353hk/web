@@ -1,0 +1,7 @@
+{
+  "disableScroll": false,
+
+  "usingComponents": {
+    "my-to-mp": "../../components/to-mp/index"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "node",
+  "description": "",
+  "author": {
+    "name": "KAZUKI",
+    "email": "376073739@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/kazuki/web"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}

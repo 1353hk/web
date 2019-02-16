@@ -1,0 +1,9 @@
+<view class="fixe" style="background: {{bg}};" hidden="{{hidden}}">
+  <view class="box animated {{anime}}">
+    <view class="wrap" style="top: {{y}};left: {{x}};">
+      <icon class="icon" type="clear" bindtap="close" wx:if="{{close}}"></icon>
+      <image class="icon" src="{{closeIcon}}" bindtap="close" wx:if="{{closeIcon}}"></image>
+      <slot></slot>
+    </view>
+  </view>
+</view>

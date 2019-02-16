@@ -1,0 +1,12 @@
+<view class="comp myclass">
+  <image class="outside" src="../../imgs/turntable-outside.png" mode="widthFix"></image>
+
+  <image class="inside" src="../../imgs/turntable-inside.png" mode="widthFix"></image>
+
+  <view class="inside inside-center">
+    <view class="inside-center__text">剩余机会</view>
+    <view class="inside-center__num">{{num}}</view>
+  </view>
+
+  <image class="main" src="{{img}}" mode="widthFix" animation="{{animation}}"></image>
+</view>

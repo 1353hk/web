@@ -1,0 +1,27 @@
+<view class="comp myclass">
+  <!-- 题目区 -->
+  <!-- <view class="question">
+    <image class="question__img" src="https://static.zuiqiangyingyu.cn//wechat_idiom/f9c4665a8e2074947603903b5983c5bf.jpg" mode="aspectFill"></image>
+    <view class="question__text">猜一成语</view>
+  </view> -->
+
+  <!-- 回答区 -->
+  <view class="answer">
+    <view class="answer__reset" hidden="{{answerList.length>5}}"></view>
+    <view class="answer__btn" wx:for="{{answerList}}" wx:key="id" bindtap="delAnswer">
+      <view class="answer__text animated {{item.state?'answer__text--active':''}} {{isWrong&&'wobble'}}" data-index="{{index}}"
+        data-item="{{item}}">{{item.text}}</view>
+    </view>
+    <view class="answer__reset" bindtap="resetAnswer">
+      <image class="answer__icon" src="../../imgs/chongzhi@2x.png" mode="widthFix"></image>
+    </view>
+  </view>
+
+  <!-- 选择区 -->
+  <view class="character" style="width:{{col*100}}rpx;">
+    <view class="character__btn" wx:for="{{characterList}}" wx:key="id" bindtap="addAnswer">
+      <view class="character__text animated {{item.state?'character__text--active fadeOutUp':'fadeInDown'}}" data-index="{{index}}"
+        data-item="{{item}}">{{item.text}}</view>
+    </view>
+  </view>
+</view>

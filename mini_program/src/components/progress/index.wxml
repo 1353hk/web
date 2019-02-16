@@ -1,0 +1,19 @@
+<view class="comp myclass">
+  <view class="bar">
+    <view class="bar__side bar__side--right"></view>
+    <view class="bar__side bar__side--left" style="width:{{position}}%;"></view>
+    <image class="bar__img {{state===0&&'bar__img--left'}} {{state===1&&'bar__img--right'}}" src="../../imgs/axe@2x.png" mode="widthFix"
+      style="left:{{position}}%;"></image>
+  </view>
+
+  <view class="user user--left">
+    <view class="user__name">{{myprop.left.name}}</view>
+    <image class="user__head" src="{{myprop.left.head}}" mode="aspectFill"></image>
+    <view class="user__score">{{leftScore}}</view>
+  </view>
+  <view class="user user--right">
+    <view class="user__name">{{myprop.right.name}}</view>
+    <image class="user__head" src="{{myprop.right.head}}" mode="aspectFill"></image>
+    <view class="user__score">{{rightScore}}</view>
+  </view>
+</view>

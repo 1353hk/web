@@ -1,0 +1,25 @@
+{
+  "window": {
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#fff",
+    "navigationStyle": "default",
+    "enablePullDownRefresh": false
+  },
+
+  "networkTimeout": {
+    "request": 20000
+  },
+
+  "navigateToMiniProgramAppIdList": [""],
+
+  "pages": [
+    "pages/index/index",
+    "pages/base/index"
+  ],
+
+  "subPackages": [],
+  "preloadRule": {}
+}

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="author" content="KAZUKI" />
+  <meta name="description" content="" />
+  <title></title>
+  <link rel="icon" href="" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <style>
+  </style>
+</head>
+
+<body class="loading">
+  <div class="page" id="app">
+    <div class="wrap">
+
+      <div class="main" style="display:inline-block;border: 1px solid;">
+        <canvas id="china" width="800" height="600"></canvas>
+      </div>
+
+    </div>
+  </div>
+  <!--<a href="#" class="return">TOP</a>-->
+  <!--<aside class="aside">
+    <div class="asides to_top">|<</div>
+    <div class="asides to_bottom">>|</div>
+</aside>-->
+  <!--<div class="transparent"></div>-->
+</body>
+
+<script src="./js/echarts.js"></script>
+<script src="./js/common.js"></script>
+<script>
+  ;
+  "use strict";
+
+  var map = {
+    "BEIJING": {
+      "name": "北京",
+      "shops": {
+        "ShuangJing": {
+          "name": "双井体验店",
+          "addr": "北京市朝阳区广渠门外大街8号优仕阁A座2503室（十号线双井地铁D出口直走50米到天桥旁）",
+          "time": "周一至周日9:00-20:00",
+          "tel": "010-58612133 | 400-800-5103",
+          "guide": "地铁站十号线双井站D口出直行200米优士阁A座25层2503，迪信通旁边转门进。"
+        },
+        "DongChengQu": {
+          "name": "东城区体验店",
+          "addr": "北京市东城区东直门外大街42号宇飞大厦11层1114号（东直门地铁C出口直行80米，东方银座、天恒大厦旁） ",
+          "time": "周一至周日9:00-20:00",
+          "tel": "010-64182890 | 400-800-5103",
+          "guide": "地铁站东直门地铁C出口直行80米，东方银座、天恒大厦旁"
+        },
+        "JingRongJie": {
+          "name": "金融街体验店",
+          "addr": "北京市西城区闹市口大街1号院长安兴融中心公寓楼811室（复兴门地铁站C出口300米）",
+          "time": "周一至周日9:00-20:00",
+          "tel": "400-800-5103",
+          "guide": "复兴门地铁站C出口300米"
+        }
+      }
+    },
+    "SHANGHAI": {
+      "name": "上海",
+      "shops": {
+        "CentralPlaza": {
+          "name": "中环广场体验店",
+          "addr": "上海黄埔区淮海中路381号中环广场2528室",
+          "time": "周一至周日9:30-20:30",
+          "tel": "021-60323503 | 400-800-5103",
+          "guide": "搭乘黄陂南地铁站1号出口，步行至中环广场"
+        }
+      }
+    },
+    "GUANGDONG": {
+      "name": "广东",
+      "citys": {
+        "GUANGZHOU": {
+          "name": "广州市",
+          "shops": {
+            "HuanShiDong": {
+              "name": "环市东体验店",
+              "addr": "广州市越秀区水荫路119号星光映景1506-1508室（东风公园西门斜对面，柏高酒店旁）",
+              "time": "周一至周日9:30-19:00",
+              "tel": "020-37635884 | 400-800-5103",
+              "guide": "可乘公交车至广州体院站，步行经过东风公园后，再步行至星光映景大厦；或乘公交车到至水荫路，步行至十九陆军陵园门口后，再步行至星光映景大厦<br />地铁站 : 乘六号线至沙河顶站，由A出口步行至十九陆军陵园门口后，再步行至星光映景大厦"
+            },
+            "GRANDVIEW": {
+              "name": "正佳体验店",
+              "addr": "广州天河区天河路228号正佳广场M层C02铺(正佳广场西北门下M层手扶梯左拐即到)（正佳西北门位于万豪酒店和H&M之间）",
+              "time": "周一至周日11:00-21:00",
+              "tel": "020-89284729 | 400-800-5103",
+              "guide": "公车站：体育中心站，朝万豪酒店方向走，到正佳西北门下扶梯左转即到<br />地铁站：体育中心D3出口，往正佳M层方向步行，朝正佳西北门扶梯方向走，面向西北门扶梯，右手边50米即到；或体育西路站C出口，朝万豪酒店方向步行，到正佳西北门下扶梯左转即到"
+            },
+            "BingJiangDong": {
+              "name": "滨江东体验店",
+              "addr": "广州市海珠区滨江东路554号（尚洋艺术港）  (金海湾对面，从广之旅旁边的楼梯上即到)",
+              "time": "周一至周日10:00-20:00",
+              "tel": "020-84298353 | 400-800-5103",
+              "guide": "公交站 : 乘公交至中大北门下车，使用地图导航至蓝色康园小区，再往步行至广之旅，从旁边的楼梯上即到<br />地铁站 : 地铁八号线鹭江站A出口，步行30米，到达鹭江公车站，搭乘182路 | 247路 | 229路 | 24路 | 8路公车，至中大北门站下车，使用地图导航步行约400米至蓝色康园小区，再往步行至广之旅，从旁边的楼梯上即到。"
+            },
+            "DongShankou": {
+              "name": "东山口店",
+              "addr": "广州越秀区农林下路40号王府井百货7层",
+              "time": "周一至周三9:00-21:45 ，周四至周日9:00-22:00",
+              "tel": "020-87006831 | 400-800-5103",
+              "guide": "公交站 : 犀牛路口站 ，下车后步行250米，至王府井百货即到<br />地铁站 : 区庄地铁站B2出口491米，至王府井百货"
+            }
+          },
+          "take": [
+            "广州市海珠区阅江中路保利国际广场南塔负一楼比邻洗衣",
+            "广州市白云区丛云路68号（保利山庄店）",
+            "佛山市南海区灯湖东路20号保利水城1楼（保利水城门店）",
+            "广州市越秀区寺右新马路南二街六巷八号地01铺格绯服装店（地铁五号线五羊邨A出口直走广新华花园别墅斜对面）"
+          ]
+        },
+        "SHENZHEN": {
+          "name": "深圳市",
+          "shops": {
+            "MIXC": {
+              "name": "万象城体验店",
+              "addr": "深圳市罗湖区宝安南路与解放路交汇处ONE39（龙园创展大厦）515室（万象城旁，大剧院D出口直走80米",
+              "time": "周一至周日10:00-20:00",
+              "tel": "188-2424-5385（程师傅） | 400-800-5103",
+              "guide": "公交站 : 中医院一门诊站 | 人民桥站 | 振业大厦站 | 桂圆工商所站 | 宝安南路站 | 地王大厦站 | 深圳书城站（任意一个站下车），下车后步行至one39大厦即到<br />地铁站:地铁一号线二号线大剧院站D出口，直走直走约80米，经过红路灯路口即到（深圳市中医院第一门诊部旁边）<br />备注：到达大厦后，在楼下门铃处按515即可上楼，若无人响应请在大堂等候或电话咨询。"
+            }
+          }
+        }
+      }
+    }
+  };
+
+
+
+  ajax({
+    url: './json/china.json',
+    success: function (res) {
+      echarts.registerMap('china', res);
+
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('china'));
+
+      var key;
+      var item;
+      var chinaData = []; //声明全国数据
+      for (key in map) {
+        if (map.hasOwnProperty(key)) {
+          item = map[key];
+          chinaData.push({
+            name: item.name,
+            itemStyle: {
+              normal: {
+                areaColor: '#37c6b0'
+              },
+              emphasis: {
+                areaColor: 'yellow'
+              }
+            },
+            label: {
+              normal: {
+                show: true
+              }
+            }
+          });
+        }
+      }
+
+      // 指定图表的配置项和数据
+      var option = {
+        series: [{
+          type: 'map',
+          name: '中国',
+          map: 'china',
+          // roam: true,
+          selectedMode: 'single',
+          itemStyle: {
+            emphasis: {
+              areaColor: '#ddd'
+            }
+          },
+          data: chinaData
+        }]
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+
+      var name; //声明省份名
+      var one;
+      var city; //声明已驻城市
+      var provinceData = []; //声明省份数据
+      myChart.on('mapselectchanged', function (params) {
+        name = params.batch[0].name;
+        for (key in map) {
+          if (map.hasOwnProperty(key)) {
+            item = map[key];
+            if (item.citys && name === item.name) {
+              if (!item.json) { //未请求过省份地图
+                ajax({
+                  url: './json/guangdong.json',
+                  async: false,
+                  success: function (res) {
+                    item.json = true; //已请求标记
+                    echarts.registerMap('guangdong', res);
+                  }
+                });
+              }
+
+              city = item.citys;
+              for (key in city) {
+                if (city.hasOwnProperty(key)) {
+                  one = city[key];
+                  provinceData.push({
+                    name: one.name,
+                    itemStyle: {
+                      normal: {
+                        areaColor: '#37c6b0'
+                      },
+                      emphasis: {
+                        areaColor: 'yellow'
+                      }
+                    },
+                    label: {
+                      normal: {
+                        show: true
+                      }
+                    }
+                  });
+                }
+              }
+
+              myChart.setOption({
+                series: [{
+                  type: 'map',
+                  name: '广东',
+                  map: 'guangdong',
+                  data: provinceData
+                }],
+                toolbox: {
+                  itemSize: 30,
+                  feature: {
+                    myTool: {
+                      show: true,
+                      title: '返回',
+                      icon: 'image://http://cache.img.etailor.me/website/img/back.png',
+                      onclick: function () {
+                        myChart.setOption(option);
+                      }
+                    }
+                  }
+                }
+              });
+              break;
+            } else {
+
+            }
+          }
+        }
+      });
+    }
+  });
+</script>
+
+</html>

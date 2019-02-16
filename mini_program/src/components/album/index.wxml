@@ -1,0 +1,17 @@
+<view class="comp myclass">
+  <swiper
+    class="swiper"
+    circular
+    autoplay
+    indicator-dots
+    indicator-color="rgba(255,255,255,.5)"
+    indicator-active-color="#fff"
+    bindtap="previewImage"
+  >
+    <block wx:for="{{list}}" wx:key="url">
+      <swiper-item class="swiper__item" data-id="{{item}}">
+        <image class="swiper__img" src="{{item}}" mode="aspectFill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

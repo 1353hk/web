@@ -1,0 +1,4 @@
+<view class="user">
+  <image class="user__head" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+  <view class="user__name">{{userInfo.nickName}}</view>
+</view>

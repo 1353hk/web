@@ -1,0 +1,64 @@
+:host {
+  color: #ffffff;
+}
+
+.comp {
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  width: 448rpx;
+  height: 448rpx;
+  border: 6rpx solid #fff;
+  border-radius: 24rpx;
+  vertical-align: middle;
+}
+
+.pic {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.cover-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+.cover {
+  flex: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cover--01 {
+  background-color: #9490d2;
+}
+.cover--02 {
+  background-color: #5a559f;
+}
+.cover--hide {
+  opacity: 0;
+}
+.cover__img {
+  width: 134rpx;
+  height: 126rpx;
+  pointer-events: none;
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 64rpx;
+  height: 64rpx;
+}
+
+@import '../../static/animate.min.wxss';

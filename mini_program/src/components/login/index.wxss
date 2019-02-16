@@ -1,0 +1,16 @@
+:host {
+}
+
+.comp {
+}
+
+.btn {
+  margin: auto;
+  width: 296rpx;
+  line-height: 80rpx;
+  border-radius: 80rpx;
+  font-size: 36rpx;
+  color: #ffffff;
+  background: #eb9726;
+  box-shadow: inset -12rpx -8rpx 1px 0 #ca8427;
+}

@@ -1,0 +1,16 @@
+.comp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24rpx;
+  box-shadow: 4rpx 4rpx 4rpx 0rpx #102449;
+}
+.text {
+  font-size: 12px;
+}
+.icon {
+  flex: none;
+  margin-left: 8rpx;
+  width: 24rpx;
+  height: 26rpx;
+}

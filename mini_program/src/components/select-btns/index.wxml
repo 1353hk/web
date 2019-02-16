@@ -1,0 +1,10 @@
+<view class="comp myclass">
+  <view class="btns" bindtap="click">
+    <button class="btn" data-type="0">
+      <image class="btn__img" src="../../assets/ignore.png" mode="widthFix" />
+    </button>
+    <button class="btn" data-type="1">
+      <image class="btn__img" src="../../assets/like.png" mode="widthFix" />
+    </button>
+  </view>
+</view>

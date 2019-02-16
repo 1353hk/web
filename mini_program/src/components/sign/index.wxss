@@ -1,0 +1,129 @@
+:host {
+  color: #ffffff;
+}
+
+.comp {
+  position: relative;
+  text-align: center;
+}
+
+.bg {
+  width: 750rpx;
+  height: 894rpx;
+}
+
+.header {
+  position: absolute;
+  top: 130rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+}
+.header__img {
+  width: 440rpx;
+  height: 118rpx;
+}
+.header__text {
+  position: absolute;
+  top: 20rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-size: 36rpx;
+  color: #ff4d82;
+}
+
+.main {
+  position: absolute;
+  top: 186rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 82rpx 0 46rpx;
+  width: 640rpx;
+  border-radius: 40rpx;
+  background: #232d96;
+}
+.day {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 20rpx 14rpx;
+  width: 120rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #ffffff;
+  overflow: hidden;
+}
+.day--active {
+  border: 4rpx solid #ffd81a;
+}
+.day--anime {
+  animation: anime 0.5s linear both;
+}
+@keyframes anime {
+  0% {
+    transform: scale(3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.day__header {
+  line-height: 44rpx;
+  background: #246ac0;
+}
+.day__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 166rpx;
+  background: rgba(113, 195, 255, 0.8);
+}
+.day__bg {
+  position: absolute;
+  width: 134rpx;
+  height: 134rpx;
+}
+.day__icon {
+  position: relative;
+  width: 52rpx;
+  height: 52rpx;
+}
+.day__text {
+  position: relative;
+}
+.btn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 42rpx;
+  margin: auto;
+  width: 320rpx;
+  line-height: 88rpx;
+  border-radius: 74rpx;
+  font-size: 36rpx;
+  color: #ff4d82;
+  background: #ffd415;
+  box-shadow: 0 5px 0 0 #ff9f15;
+}
+.day__mask {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  line-height: 320rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #ff4b82;
+  background: rgba(0, 0, 0, 0.8);
+  transform: rotate(-15deg);
+  transform-origin: center center;
+}

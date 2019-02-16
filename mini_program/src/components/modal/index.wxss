@@ -1,0 +1,9 @@
+.modal {
+  text-align: center;
+}
+.modal__title {
+
+}
+.modal__detail {
+
+}

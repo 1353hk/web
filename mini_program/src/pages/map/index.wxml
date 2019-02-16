@@ -1,0 +1,20 @@
+<map
+    id="map"
+    longitude="113.324520"
+    latitude="23.099994"
+    scale="14"
+    markers="{{markers}}"
+    bindmarkertap="markertap"
+    controls="{{controls}}"
+    bindcontroltap="controltap"
+    polyline="{{polyline}}"
+    bindregionchange="regionchange"
+    show-location
+    style="width: 100vw; height: 70vh;"
+>
+</map>
+
+<button type="primary" bindtap="getCenterLocation">获取位置</button>
+<button type="primary" bindtap="moveToLocation">移动位置</button>
+<button type="primary" bindtap="translateMarker">移动标注</button>
+<button type="primary" bindtap="includePoints">缩放视野展示所有经纬度</button>

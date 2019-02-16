@@ -1,0 +1,9 @@
+<view class="barrage" wx:if="{{barrageList.length}}" style="height: {{myProp.height}}vh;">
+  <block wx:for="{{barrageList}}" wx:key="id">
+    <view class="barrage-item" style="animation: first {{item.time}}s linear forwards; top: {{item.top}}vh; color: {{color}}; background: {{bg}};">
+      <image class="barrage-item__img" src="{{item.img}}" mode="widthFix"></image>
+      <text class="barrage-item__text" hidden="{{!item.text}}">{{item.text}}</text>
+      <image class="barrage-item__icon" hidden="{{!item.icon}}" src="{{item.icon}}" mode="widthFix"></image>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,107 @@
+:host {
+  display: flex;
+  color: #ffffff;
+}
+
+.comp {
+  position: relative;
+  box-sizing: border-box;
+  margin: 90rpx auto;
+  width: 100vw;
+}
+
+.bar {
+  position: relative;
+  margin: auto;
+  width: 75%;
+  height: 60rpx;
+}
+.bar__side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.bar__side--left {
+  left: 0;
+  background: #569dff;
+  transition: width 1.8s linear;
+}
+.bar__side--right {
+  right: 0;
+  background: #ff4996;
+}
+.bar__img {
+  position: absolute;
+  bottom: 20rpx;
+  margin-left: -56rpx;
+  width: 112rpx;
+  height: 112rpx;
+  transform-origin: 50% 90%;
+  transition: left 1.8s linear;
+}
+.bar__img--left {
+  animation: leftLeaning 0.6s linear both 3;
+}
+.bar__img--right {
+  animation: rightLeaning 0.6s linear both 3;
+}
+@keyframes leftLeaning {
+  0% {
+    transform: rotate(0);
+  }
+  30% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+@keyframes rightLeaning {
+  0% {
+    transform: rotate(0);
+  }
+  30% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.user {
+  position: absolute;
+  top: -90rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user--left {
+  left: 0;
+  color: #569dff;
+}
+.user--right {
+  right: 0;
+  color: #ff4996;
+}
+.user__name {
+  width: 200rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #ffffff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.user__head {
+  margin-top: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border: solid 6rpx #ffffff;
+  border-radius: 50%;
+}
+.user__score {
+  margin-top: 10rpx;
+  font-size: 72rpx;
+  font-family: BitNanov33;
+}

@@ -1,0 +1,66 @@
+<view class="scroll-wrap">
+  <view class="scroll-btns">
+    <button class="scroll-btns__btn {{active==0?'scroll-btns__btn--active':''}}" data-active="0" bindtap="change">好友排行</button>
+    <button class="scroll-btns__btn {{active==1?'scroll-btns__btn--active':''}}" data-active="1" bindtap="change">世界排行</button>
+  </view>
+  <scroll-view class="scroll" scroll-y enable-back-to-top scroll-with-animation bindscrolltolower="more">
+    <block wx:if="{{list.length>1}}">
+      <block wx:for="{{list}}" wx:key="">
+        <view class="scroll__item">
+          <view class="scroll__index">
+            <image class="scroll__index_img" wx:if="{{index===0}}" src="../../imgs/icon_first@2x.png" mode="widthFix"></image>
+            <image class="scroll__index_img" wx:if="{{index===1}}" src="../../imgs/icon_second@2x.png" mode="widthFix"></image>
+            <image class="scroll__index_img" wx:if="{{index===2}}" src="../../imgs/icon_third@2x.png" mode="widthFix"></image>
+            <view class="scroll__index_num" wx:if="{{index>2}}">{{index+1}}</view>
+          </view>
+
+          <image class="scroll__head" src="{{item.avatar}}" mode="widthFix"></image>
+
+          <view class="scroll__msg">
+            <view class="scroll__name">{{item.nickname}}</view>
+
+            <block wx:if="{{type==='pk'}}">
+              <view class="scroll__dan">{{item.pk_level_title}}</view>
+            </block>
+            <block wx:else>
+              <view class="scroll__gold">
+                <image class="scroll__gold_icon" src="../../imgs/icon_Gold_big@2x.png" mode="widthFix"></image>
+                <text class="scroll__gold_num"> {{item.total_score}}</text>
+              </view>
+            </block>
+          </view>
+
+          <view class="scroll__level">
+            <!-- <block wx:if="{{type==='pk'}}">
+              <text class="scroll__level_text">胜 </text>
+              <text class="scroll__level_num">{{item.pk_win||0}}</text>
+              <text class="scroll__level_text"> 场</text>
+            </block> -->
+            <block wx:if="{{type==='pk'}}">
+              <image class="scroll__level_icon" src="../../imgs/star.png" mode="widthFix"></image>
+              <text class="scroll__level_num">{{item.pk_star||0}}</text>
+            </block>
+            <block wx:else>
+              <text class="scroll__level_num">{{item.pass-1||0}}</text>
+              <text class="scroll__level_text"> 关</text>
+            </block>
+          </view>
+
+        </view>
+        <view class="scroll__line"></view>
+      </block>
+      <view class="scroll__more" wx:if="{{hasMore}}">正在加载更多</view>
+    </block>
+
+    <block wx:else>
+      <view class="scroll__empty">
+        <image class="scroll__empty_img" src="../../imgs/tiger_good@2x.png" mode="widthFix"></image>
+        <view class="scroll__empty_tip">邀请好友就能看到对方啦</view>
+        <button class="scroll__empty_btn" open-type="share">
+          <!-- <image class="scroll__empty_icon" src="../../imgs/icon_add@2x.png" mode="widthFix"></image> -->
+          <text class="scroll__empty_text">邀请好友</text>
+        </button>
+      </view>
+    </block>
+  </scroll-view>
+</view>

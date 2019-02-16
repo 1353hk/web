@@ -1,0 +1,15 @@
+<view class="modal">
+  <view class="modal__header" wx:if="{{type}}">
+    <image class="modal__icon" src="../../imgs/success.png" mode="widthFix" wx:if="{{type==='success'}}"></image>
+    <image class="modal__icon" src="../../imgs/fail.png" mode="widthFix" wx:if="{{type==='fail'}}"></image>
+  </view>
+  <view class="modal__title">
+    <slot name="title"></slot>
+  </view>
+  <view class="modal__detail">
+    <slot name="detail"></slot>
+  </view>
+  <view class="modal__other">
+    <slot class="modal__other"></slot>
+  </view>
+</view>

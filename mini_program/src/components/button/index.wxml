@@ -1,0 +1,6 @@
+<button class="comp" style="width:{{width?width+'rpx':'auto'}};line-height:{{height}}rpx;background:{{bg}};" open-type="{{openType}}">
+  <text class="text">
+    <slot></slot>
+  </text>
+  <image class="icon" src="{{icon}}" mode="widthFix"></image>
+</button>

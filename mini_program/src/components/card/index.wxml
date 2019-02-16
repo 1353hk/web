@@ -1,0 +1,72 @@
+<view class="comp myclass">
+  <view class="main">
+    <block wx:if="{{swiper && imgs.length>1}}">
+      <my-album class="" list="{{imgs}}"></my-album>
+    </block>
+    <block wx:else>
+      <image
+        class="main__img"
+        src="{{msg.head || imgs[0]}}"
+        mode="aspectFill"
+        bindtap="previewImage"
+      ></image>
+    </block>
+  </view>
+
+  <view class="msg">
+    <block wx:if="{{msg.age}}">
+      <view class="highlight">
+        <view class="highlight__name">{{ msg.nickname }}</view>
+        <view class="highlight__tags">
+          <view
+            class="highlight__tag highlight__sex highlight__sex--{{msg.gender}}"
+          >
+            <i
+              class="sex__icon fa fa-mars fa-inverse"
+              wx:if="{{msg.gender===1}}"
+            ></i>
+            <i
+              class="sex__icon fa fa-venus fa-inverse"
+              wx:if="{{msg.gender===2}}"
+            ></i>
+
+            <text class="highlight__sex_text" wx:if="{{msg.age}}">{{
+              msg.age
+            }}</text>
+          </view>
+
+          <block wx:if="{{constellation.name}}">
+            <view
+              class="highlight__tag highlight__constellation"
+              style="background-color: {{constellation.bg}};"
+              >{{ constellation.name }}</view
+            >
+          </block>
+
+          <!--
+            <view class="highlight__tag highlight__hobby">
+              <image class="" src="" mode="widthFix" />
+              <text class="highlight__hobby_text">12</text>
+            </view>
+          -->
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="normal">
+        <view class="normal__name">{{ msg.nickname }}</view>
+
+        <i class="normal__icon fa fa-mars" wx:if="{{msg.gender===1}}"></i>
+        <i class="normal__icon fa fa-venus" wx:if="{{msg.gender===2}}"></i>
+      </view>
+    </block>
+
+    <!-- 工作 -->
+    <block wx:if="{{msg.job}}">
+      <view class="other">{{ msg.job }}</view>
+    </block>
+
+    <!-- 定位 -->
+    <!-- <block wx:else> <view class="other">白云区 （8km)</view> </block> -->
+  </view>
+</view>

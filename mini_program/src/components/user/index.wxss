@@ -1,0 +1,20 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user__head {
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border: solid 4rpx #ffffff;
+  border-radius: 50%;
+}
+.user__name {
+  margin-top: 20rpx;
+  max-width: 80%;
+  word-break: break-all;
+  font-size: 36rpx;
+  color: #b16400;
+}

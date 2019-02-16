@@ -1,0 +1,45 @@
+{
+  "name": "",
+  "description": "",
+  "version": "0.0.0",
+  "author": {
+    "name": "KAZUKI",
+    "email": "376073739@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/kazuki/web"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "cls && webpack-dev-server --colors",
+    "build": "cls && webpack --progress --colors"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.1.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "html-webpack-plugin": "^3.2.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-loader": "^2.1.6",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "vue-loader": "^15.2.4",
+    "webpack": "^4.15.1",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "animate.css": "^3.6.1",
+    "lodash": "^4.17.4",
+    "normalize.css": "^8.0.0",
+    "vconsole": "^3.1.0",
+    "vue": "^2.5.13"
+  }
+}

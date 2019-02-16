@@ -1,0 +1,32 @@
+<view class="comp myclass">
+  <movable-area class="card-wrap">
+    <view class="card" capture-catch:tap="click">
+      <block wx:for="{{myList}}" wx:key="head">
+        <block wx:if="{{index===list.length-1}}">
+          <movable-view
+            class="card__item card__item--move"
+            direction="horizontal"
+            out-of-bounds
+            damping="100"
+            x="{{x}}"
+            y="{{y}}"
+            bindtouchstart="touchstart"
+            bindtouchend="touchend"
+          >
+            <generic class="my-card" msg="{{item}}"></generic>
+          </movable-view>
+        </block>
+        <block wx:else>
+          <view class="card__item card__item--static">
+            <generic class="my-card" msg="{{item}}"></generic>
+          </view>
+        </block>
+      </block>
+    </view>
+
+    <my-select-btns
+      class="my-select-btns"
+      bind:trigger="select"
+    ></my-select-btns>
+  </movable-area>
+</view>

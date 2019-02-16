@@ -1,0 +1,3 @@
+<view class="comp myclass">
+  <button class="btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="login">立即登录</button>
+</view>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="author" content="KAZUKI" />
+  <meta name="description" content="" />
+  <title></title>
+  <link rel="icon" href="" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/element-ui.css" />
+  <script src="./js/tools.js"></script>
+  <!-- <script src="js/jquery.js"></script> -->
+  <script src="./js/vue.js"></script>
+  <script src="./js/vue-router.js"></script>
+  <!-- <script src="./js/element-ui.js"></script> -->
+</head>
+
+<body>
+  <style>
+  </style>
+  <div id="app">
+
+
+
+
+
+    <h1>Hello App!</h1>
+    <p>
+      <router-link to="/">/</router-link>
+      <br>
+      <router-link to="/foo" replace>Go to Foo</router-link>
+      <br>
+      <router-link to="/bar">Go to Bar</router-link>
+      <br>
+      <router-link to="/other">/other</router-link>
+    </p>
+    <!-- 路由出口 -->
+    <!-- 路由匹配到的组件将渲染在这里 -->
+    <router-view></router-view>
+    <router-view name="view1"></router-view>
+    <router-view name="view2"></router-view>
+
+
+
+
+
+
+  </div>
+</body>
+<script>
+  // new Vue({
+  //   el:'#app',
+  //   data:{
+
+  //   }
+  // })
+
+
+
+
+
+  const Home = {
+    template: '<div>home</div>'
+  }
+  const Foo = {
+    template: '<div>foo</div>'
+  }
+  const Bar = {
+    template: `
+            <div>
+                bar
+                <div style="height:5000px"></div>
+                <p id="anchor">Anchor</p>
+            </div>
+        `
+  }
+
+
+  const router = new VueRouter({
+    // mode:'history',
+    // base:__dirname,
+    routes: [
+      { path: '/', component: Home, meta: { scrollToTop: true } },
+      { path: '/foo', component: Foo },
+      { path: '/bar', component: Bar, meta: { scrollToTop: true } }
+    ],
+    scrollBehavior(to, from, savedPosition) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (savedPosition) {
+            resolve(savedPosition);
+          } else {
+            let position = {};
+            if (to.hash) {
+              position.selector = to.hash;
+            } else if (to.matched.some(m => m.meta.scrollToTop)) {
+              position.x = 0;
+              position.y = 0;
+            }
+            resolve(position);
+          }
+        }, 500)
+      })
+    },
+  })
+
+  new Vue({
+    router,
+    template: `
+            <div id="app">
+                <h1>Scroll Behavior</h1>
+                <ul>
+                    <li><router-link to="/">/</router-link></li>
+                    <li><router-link to="/foo">/foo</router-link></li>
+                    <li><router-link to="/bar">/bar</router-link></li>
+                    <li><router-link to="/bar#anchor">/bar#anchor</router-link></li>
+                </ul>
+                <router-view class="view"></router-view>
+            </div>
+        `
+  }).$mount('#app')
+</script>
+
+</html>

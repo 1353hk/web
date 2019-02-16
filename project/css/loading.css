@@ -1,0 +1,42 @@
+.loading::before {
+  content: '';
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+.loading::after {
+  content: url(../img/loading.png);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  margin: auto;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: loading steps(8, start) 1.3s infinite;
+  animation: loading steps(8, start) 1.3s infinite;
+}
+@-webkit-keyframes loading {
+  from {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  to {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+@keyframes loading {
+  from {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  to {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}

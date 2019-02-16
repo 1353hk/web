@@ -1,0 +1,22 @@
+:host {
+  color: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.comp {
+}
+
+.pct {
+}
+.time {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  line-height: 14px;
+  font-size: 12px;
+  color: #e94545;
+}

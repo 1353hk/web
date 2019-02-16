@@ -1,0 +1,39 @@
+.barrage {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  transition: all 0.5s;
+  pointer-events: none;
+}
+.barrage-item {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rpx;
+  border-radius: 100rpx;
+}
+.barrage-item__img {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.barrage-item__text {
+  margin: 0 12rpx;
+  word-break: break-all;
+}
+.barrage-item__icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+@keyframes first {
+  from {
+    transform: translateX(750rpx);
+  }
+  to {
+    transform: translateX(-750rpx);
+  }
+}

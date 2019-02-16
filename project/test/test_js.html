@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="author" content="KAZUKI" />
+  <meta name="description" content="" />
+  <title></title>
+  <link rel="icon" href="" />
+  <!-- <link rel="stylesheet" href="./css/loading.css" /> -->
+  <!-- <link rel="stylesheet" href="./css/base.css" /> -->
+  <!--<link rel="stylesheet" href="./css/font-awesome.css">-->
+  <!--<link rel="stylesheet" href="./css/bootstrap.css">-->
+  <script src="../js/tools.js"></script>
+  <!-- <script src="./js/jquery.js"></script> -->
+  <!-- <script src="./js/bootstrap.js"></script> -->
+  <!-- <script src="./js/jweixin.js"></script> -->
+  <script src="../lib/lodash.js"></script>
+  <style>
+  </style>
+</head>
+
+<body class="loading">
+  <div class="page" id="app">
+    <div class="wrap">
+
+    </div>
+  </div>
+</body>
+
+<script>
+  "use strict";
+
+
+
+
+
+  function doubled(n) {
+    return n * 2;
+  }
+
+  function square(n) {
+    return n * n;
+  }
+
+  var func = _.overArgs(function (x, y) {
+    return [x, y];
+  }, square, doubled);
+
+  w(func(10, 5));
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

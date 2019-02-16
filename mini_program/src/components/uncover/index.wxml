@@ -1,0 +1,22 @@
+<view class="comp myclass">
+  <image class="pic animated zoomIn" src="{{img}}" mode="aspectFill" wx:if="{{img}}"></image>
+  <image class="loading" src="../../imgs/loading.gif" mode="aspectFill" wx:else></image>
+
+  <view class="cover-wrap" bindtap="uncover">
+    <block wx:for="{{list}}" wx:key="id">
+      <view class="cover cover--02 {{item.isHide&&'cover--hide'}}" data-id="{{index}}" wx:if="{{index===0||index===3}}">
+        <!-- <image class="cover__img {{anime&&'animated zoomIn'}}" src="../../imgs/pic_02.png" mode="aspectFill"></image> -->
+
+        <image class="cover__img animated zoomIn" src="../../imgs/pic_02.png" mode="aspectFill" wx:if="{{anime}}"></image>
+        <image class="cover__img" src="../../imgs/pic_02.png" mode="aspectFill" wx:else></image>
+      </view>
+
+      <view class="cover cover--01 {{item.isHide&&'cover--hide'}}" data-id="{{index}}" wx:if="{{index===1||index===2}}">
+        <!-- <image class="cover__img {{anime&&'animated zoomIn'}}" src="../../imgs/pic_01.png" mode="aspectFill"></image> -->
+
+        <image class="cover__img animated zoomIn" src="../../imgs/pic_01.png" mode="aspectFill" wx:if="{{anime}}"></image>
+        <image class="cover__img" src="../../imgs/pic_01.png" mode="aspectFill" wx:else></image>
+      </view>
+    </block>
+  </view>
+</view>
