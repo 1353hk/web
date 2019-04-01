@@ -1,12 +1,18 @@
 import React from 'react';
 
-const Comp = class extends React.Component {
+const CvsDraw = class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
 
     this.cvs = React.createRef();
   }
+
+  static defaultProps = {
+    textConfirm: '确定',
+    textCancel: '取消',
+    textRewrite: '重写',
+  };
 
   render() {
     return (
@@ -17,20 +23,18 @@ const Comp = class extends React.Component {
           onMouseDown={this.onMouseDown}
           onMouseMove={this.onMouseMove}
           onMouseEnter={this.onMouseEnter}
-        >
-          您的浏览器不支持canvas元素
-        </canvas>
+        />
 
         <br />
 
         <button className="btn btn-primary" onClick={this.onRewrite}>
-          重写
+          {this.props.textRewrite}
         </button>
         <button className="btn btn-primary" onClick={this.onConfirm}>
-          确定
+          {this.props.textConfirm}
         </button>
         <button className="btn btn-primary" onClick={this.onCancel}>
-          取消
+          {this.props.textCancel}
         </button>
       </div>
     );
@@ -130,4 +134,4 @@ const Comp = class extends React.Component {
   };
 };
 
-export default Comp;
+export default CvsDraw;
