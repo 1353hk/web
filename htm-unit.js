@@ -18,16 +18,16 @@ export default class {
     if (deviceXDPI) {
       arrDPI = [deviceXDPI, deviceYDPI];
     } else {
-      let tmpNode = document.createElement('DIV');
+      let tmpNode = document.createElement('div');
       tmpNode.style.cssText = `
-      visibility:hidden;
-      position:absolute;
-      left:0px;
-      top:0px;
-      z-index:99;
-      width:1in;
-      height:1in;
-    `;
+        visibility:hidden;
+        position:absolute;
+        top: -999px;
+        left:-999px;
+        z-index: -999;
+        width:1in;
+        height:1in;
+      `;
 
       document.body.appendChild(tmpNode);
 
@@ -48,7 +48,7 @@ export default class {
    */
   px2mm(px) {
     let inch = px / this.dip;
-    let mm = (inch * 25.4) / window.devicePixelRatio;
+    let mm = inch * 25.4;
     return Math.ceil(mm);
   }
 
@@ -59,7 +59,7 @@ export default class {
    */
   mm2px(mm) {
     let inch = mm / 25.4;
-    let px = (inch * this.dip) / window.devicePixelRatio;
+    let px = inch * this.dip;
     return Math.ceil(px);
   }
 }
