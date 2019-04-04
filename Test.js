@@ -4,6 +4,9 @@ import Test from '../Test'; //测试而已
 
 {this.state.isDev && (
   <Test opt={this.state.devOpt} set={e => this.setState(e)} />
+
+  // 折叠
+  <Test opt={this.state.devOpt} set={e => this.setState(e)} isOpen={false} />
 )}
 
 let { isDev, devOpt } = this.state;
@@ -16,12 +19,13 @@ const Test = class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isShow: true,
+      /**是否显示 */ isShow: true,
     };
   }
-
-  static defaultProps = { opt: {} };
-  componentWillMount() {}
+  static defaultProps = {
+    /**选项列表 */ opt: {},
+    /**是否展开 */ isOpen: true,
+  };
 
   render() {
     let opt = this.props.opt;
@@ -37,33 +41,46 @@ const Test = class extends React.Component {
           background: 'rgba(0,0,0,.5)',
         }}
       >
-        {Object.keys(opt).map((key, index) => (
-          <label
-            key={key}
-            htmlFor={key}
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              borderBottom: '1px solid',
-            }}
-          >
-            <span>{`${index + 1}. ${key}`}</span>
-            <input
-              type="checkbox"
-              id={key}
-              checked={opt[key]}
-              onChange={this.onChange}
-            />
-          </label>
-        ))}
+        <details open={this.props.isOpen}>
+          <summary>DEV OPTS</summary>
 
-        <div style={{ textAlign: 'center' }} onClick={this.onClose}>
-          <button>关闭</button>
-        </div>
+          {Object.keys(opt).map((key, index) => (
+            <label
+              key={key}
+              htmlFor={key}
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                borderBottom: '1px solid',
+                cursor: 'pointer',
+              }}
+            >
+              <span>{`${index + 1}. ${key}`}</span>
+              <input
+                type="checkbox"
+                id={key}
+                checked={opt[key]}
+                onChange={this.onChange}
+              />
+            </label>
+          ))}
+
+          <button
+            style={{
+              width: '100%',
+              cursor: 'pointer',
+            }}
+            onClick={this.onClose}
+          >
+            Ⅹ
+          </button>
+        </details>
       </div>
     ) : null;
   }
+
+  componentWillMount() {}
 
   onChange = e => {
     let { id, checked } = e.target;
